@@ -1,0 +1,41 @@
+{
+ "yolov8n (tiny)": {
+  "run": "n_merged",
+  "mAP50": 0.3465,
+  "mAP50_95": 0.1251,
+  "precision@.001": 0.4748,
+  "recall@.001": 0.4124,
+  "relaxed_P_iou25": 0.5484,
+  "relaxed_R_iou25": 0.5258,
+  "relaxed_F1_iou25": 0.5368,
+  "ms_per_img": 6.4,
+  "params_M": 3.0,
+  "size_MB": 6.3
+ },
+ "yolov8s (small)": {
+  "run": "s_merged",
+  "mAP50": 0.3629,
+  "mAP50_95": 0.1289,
+  "precision@.001": 0.4939,
+  "recall@.001": 0.4225,
+  "relaxed_P_iou25": 0.5294,
+  "relaxed_R_iou25": 0.4639,
+  "relaxed_F1_iou25": 0.4945,
+  "ms_per_img": 6.9,
+  "params_M": 11.1,
+  "size_MB": 22.5
+ },
+ "yolov8m (medium)": {
+  "run": "m_merged",
+  "mAP50": 0.387,
+  "mAP50_95": 0.1423,
+  "precision@.001": 0.5238,
+  "recall@.001": 0.4422,
+  "relaxed_P_iou25": 0.5,
+  "relaxed_R_iou25": 0.5464,
+  "relaxed_F1_iou25": 0.5222,
+  "ms_per_img": 8.1,
+  "params_M": 25.9,
+  "size_MB": 52.0
+ }
+}

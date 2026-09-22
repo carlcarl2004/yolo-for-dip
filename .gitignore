@@ -1,0 +1,17 @@
+# ---- 凭据，绝对不要提交 ----
+*.ps1
+.env
+.git-credentials
+
+# ---- 大文件 / 中间产物，不入库 ----
+export/
+autodl/
+rf/
+*.zip
+*.tar.gz
+
+# ---- Python ----
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
