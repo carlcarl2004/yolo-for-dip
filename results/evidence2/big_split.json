@@ -1,0 +1,26 @@
+{
+ "pooled": 11642,
+ "groups": 4442,
+ "val_images": 1399,
+ "val_groups": 511,
+ "hamming": 8,
+ "val_by_source": {
+  "rf_bin": 386,
+  "taco_bin": 113,
+  "trash_merged_bin": 571,
+  "trash_street": 185,
+  "trash_bin": 51,
+  "trash_own": 72,
+  "trash3_bin": 21
+ },
+ "train_by_source": {
+  "rf_bin": 2972,
+  "taco_bin": 921,
+  "trash_merged_bin": 4277,
+  "trash_street": 1305,
+  "trash_bin": 293,
+  "trash_own": 384,
+  "trash3_bin": 91
+ },
+ "boxes_written": 37316
+}

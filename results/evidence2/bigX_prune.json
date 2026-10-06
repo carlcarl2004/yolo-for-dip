@@ -1,0 +1,10 @@
+{
+ "train": {
+  "kept": 10123,
+  "dropped": 120
+ },
+ "val": {
+  "kept": 1387,
+  "dropped": 12
+ }
+}
