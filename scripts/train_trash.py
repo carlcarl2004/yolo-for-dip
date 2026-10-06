@@ -7,7 +7,7 @@ from ultralytics import YOLO
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--weights", default="yolov8s.pt")
-    ap.add_argument("--data", default="/root/autodl-tmp/trash_project/trash.yaml")
+    ap.add_argument("--data", default="/root/autodl-tmp/datasets/trash_merged_bin/data.yaml")
     ap.add_argument("--epochs", type=int, default=200)
     ap.add_argument("--imgsz", type=int, default=640)
     ap.add_argument("--batch", type=int, default=32)
@@ -17,6 +17,12 @@ def main():
     ap.add_argument("--lr0", type=float, default=0.01)
     ap.add_argument("--mixup", type=float, default=0.0)
     ap.add_argument("--scale", type=float, default=0.5)
+    ap.add_argument("--degrees", type=float, default=5.0)
+    ap.add_argument("--flipud", type=float, default=0.0)
+    ap.add_argument("--fliplr", type=float, default=0.5)
+    ap.add_argument("--project", default="/root/autodl-tmp/trash_project/runs")
+    ap.add_argument("--no-cache", dest="cache", action="store_false")
+    ap.set_defaults(cache=True)
     ap.add_argument("--close-mosaic", dest="close_mosaic", type=int, default=15)
     ap.add_argument("--cos-lr", dest="cos_lr", action="store_true")
     ap.add_argument("--workers", type=int, default=8)
@@ -29,19 +35,21 @@ def main():
         epochs=a.epochs,
         imgsz=a.imgsz,
         batch=a.batch,
-        project="/root/autodl-tmp/trash_project/runs",
+        project=a.project,
         name=name,
         device=a.device,
         workers=a.workers,
-        cache=True,
+        cache=a.cache,
         patience=a.patience,
         seed=0,
         lr0=a.lr0,
         cos_lr=a.cos_lr,
         mixup=a.mixup,
         scale=a.scale,
+        degrees=a.degrees,
+        flipud=a.flipud,
+        fliplr=a.fliplr,
         close_mosaic=a.close_mosaic,
-        degrees=5.0,
         plots=True,
         exist_ok=True,
     )
