@@ -46,22 +46,31 @@ def imgs(split):
 
 
 def label_for(p):
-    return os.path.join(SRC, "labels", os.path.splitext(os.path.basename(p))[0] + ".txt")
+    """<root>/<split>/images/<stem>.<ext> -> <root>/<split>/labels/<stem>.txt"""
+    split_dir = os.path.dirname(os.path.dirname(p))
+    return os.path.join(split_dir, "labels", os.path.splitext(os.path.basename(p))[0] + ".txt")
 
 
-def relink(paths, out_dir):
-    if os.path.isdir(out_dir):
-        shutil.rmtree(out_dir)
-    os.makedirs(out_dir)
+def relink(paths, img_dir, lab_dir):
+    """Symlink images into img_dir and their labels into lab_dir."""
+    for d in (img_dir, lab_dir):
+        if os.path.isdir(d):
+            shutil.rmtree(d)
+        os.makedirs(d)
+    for cache in glob.glob(os.path.join(os.path.dirname(img_dir), "labels.cache")):
+        os.remove(cache)
+    n_lab = 0
     for p in paths:
-        dst = os.path.join(out_dir, os.path.basename(p))
+        dst = os.path.join(img_dir, os.path.basename(p))
         if not os.path.exists(dst):
             os.symlink(os.path.abspath(p), dst)
         lab = label_for(p)
         if os.path.exists(lab):
-            dl = os.path.join(out_dir, os.path.basename(lab))
+            dl = os.path.join(lab_dir, os.path.basename(lab))
             if not os.path.exists(dl):
                 os.symlink(os.path.abspath(lab), dl)
+                n_lab += 1
+    return n_lab
 
 
 def main():
@@ -89,10 +98,10 @@ def main():
     print(json.dumps({k: v for k, v in rep.items() if k != "examples"}, ensure_ascii=False), flush=True)
     print("examples:", json.dumps(rep["examples"], ensure_ascii=False)[:500], flush=True)
 
-    relink(tr, os.path.join(DST, "train", "images"))
-    relink(tr, os.path.join(DST, "train", "labels"))
-    relink(clean, os.path.join(DST, "val", "images"))
-    relink(clean, os.path.join(DST, "val", "labels"))
+    print("train labels", relink(tr, os.path.join(DST, "train", "images"),
+                                 os.path.join(DST, "train", "labels")), "/", len(tr), flush=True)
+    nv = relink(clean, os.path.join(DST, "val", "images"), os.path.join(DST, "val", "labels"))
+    print("val labels", nv, "/", len(clean), flush=True)
     with open(os.path.join(DST, "data.yaml"), "w") as f:
         f.write("path: %s\ntrain: train/images\nval: val/images\nnames:\n  0: trash\n" % DST)
     json.dump(rep, open(os.path.join(OUT, "clean_split.json"), "w"), indent=1, ensure_ascii=False)

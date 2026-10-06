@@ -19,10 +19,13 @@ MODELS = [
     ("yolov8s_640_base", W + "/trash_project/runs/s_merged/weights/best.pt", 640),
     ("yolov8m_640_base", W + "/trash_project/runs/m_merged/weights/best.pt", 640),
     ("yolov8s_640_rot", W + "/trash_project/runs/s_rot/weights/best.pt", 640),
-    ("yolov8s_960", W + "/trash_project/runs/s_960/weights/best.pt", 960),
+    ("yolov8s_960m", W + "/trash_project/runs/s_960m/weights/best.pt", 960),
+    ("yolov8s_ftstreet", W + "/trash_project/runs/s_ftstreet/weights/best.pt", 640),
+    ("yolov8s_ftown", W + "/trash_project/runs/s_ftown/weights/best.pt", 640),
 ]
 DATASETS = [
     ("leaky_val", W + "/datasets/trash_merged_bin/data.yaml"),
+    ("street_val", W + "/datasets/trash_street/data.yaml"),
     ("clean_val", W + "/datasets/trash_clean/data.yaml"),
 ]
 

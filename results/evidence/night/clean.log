@@ -1,0 +1,16 @@
+nohup: ignoring input
+train 4775 val 73
+hash 0 / 4775
+hash 500 / 4775
+hash 1000 / 4775
+hash 1500 / 4775
+hash 2000 / 4775
+hash 2500 / 4775
+hash 3000 / 4775
+hash 3500 / 4775
+hash 4000 / 4775
+hash 4500 / 4775
+hash 0 / 73
+{"train_images": 4775, "val_images": 73, "val_near_dup_of_train": 40, "val_clean": 33, "threshold_hamming_16x16": 10}
+examples: [{"val": "own_T1_002.jpg", "train": "taco_bin_batch_7_000000.JPG", "hamming": 3}, {"val": "own_T1_033.jpg", "train": "taco_bin_batch_5_000001.JPG", "hamming": 3}, {"val": "own_T1_061.jpg", "train": "taco_bin_batch_11_000002.jpg", "hamming": 0}, {"val": "own_T1_066.jpg", "train": "taco_bin_batch_10_000002.jpg", "hamming": 2}, {"val": "own_T1_071.jpg", "train": "taco_bin_batch_6_000002.JPG", "hamming": 0}, {"val": "own_T1_078.jpg", "train": "trash_bin_T1_077.jpg", "hamming": 0}, {"val": "own_T1_09
+WROTE /root/autodl-tmp/datasets/trash_clean

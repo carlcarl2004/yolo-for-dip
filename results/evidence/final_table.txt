@@ -1,0 +1,7 @@
+yolov8n_640_base   leaky mAP50=0.3465  clean mAP50=0.2321  clean@conf0.5 P=0.523 R=0.1463
+yolov8s_640_base   leaky mAP50=0.3629  clean mAP50=0.2365  clean@conf0.5 P=0.5714 R=0.1951
+yolov8m_640_base   leaky mAP50=0.3870  clean mAP50=0.2612  clean@conf0.5 P=0.4631 R=0.2439
+yolov8s_640_rot    leaky mAP50=0.3651  clean mAP50=0.2429  clean@conf0.5 P=0.5806 R=0.1707
+yolov8s_960m       leaky mAP50=0.3339  clean mAP50=0.1166  clean@conf0.5 P=0.3478 R=0.1951
+yolov8s_ftown      leaky mAP50=0.3785  clean mAP50=0.3298  clean@conf0.5 P=1.0 R=0.0976
+yolov8s_ftstreet   leaky mAP50=0.3235  clean mAP50=0.1682  clean@conf0.5 P=0.3333 R=0.1707

@@ -1,0 +1,5 @@
+path: /root/autodl-tmp/datasets/trash_merged_bin
+train: train/images
+val: val/images
+names:
+  0: trash
